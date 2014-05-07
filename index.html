@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/knockout-3.1.0.js"></script>
+<script src="js/pager.min.js"></script>
+</head>
+<body>
+Hello
+<!-- <div data&#45;bind="text: var1"> -->
+<!-- </div> -->
+<div data-bind="page: {id: 'start'}">
+Hello start
+</div>
+<!-- <div data&#45;bind="page: {id: 'page2'}"> -->
+<!-- Hello page2 -->
+<!-- </div> -->
+<!-- <div data&#45;bind="page: {id: 'blah'}"> -->
+<!-- Hello start -->
+<!-- </div> -->
+<script>
+    function targetViewModel() {
+        var self = this;
+        self.var1 = ko.observable("value1");
+    }
+
+    pager.Href.hash = '#!/';
+    tvm = new targetViewModel();
+    pager.extendWithPage(tvm);
+    ko.applyBindings(tvm);
+
+    pager.start();
+
+    // var myPage = new pager.Page();
+    // valueAccessorObject = {
+    //     id:"blah"
+    // };
+    // myPage.valueAccessor = function () {
+    //     return valueAccessorObject;
+    // };
+    // myPage.viewModel = {
+    //     answer:42,
+    //     question:'How many'
+    // };
+    // var viewModel = {
+    //     myPage:myPage
+    // };
+
+</script>
+</body>
+</html>
