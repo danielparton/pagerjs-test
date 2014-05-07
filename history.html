@@ -1,17 +1,22 @@
 <html>
 <head>
-<!-- <base href="http://dannyparton.github.io/pagerjs&#45;test/"/> -->
+<base href="http://dannyparton.github.io/pagerjs-test/"/>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/knockout-3.1.0.js"></script>
 <script src="js/pager.min.js"></script>
-<!-- <script src="js/history.js"></script> -->
+<script src="js/history.js"></script>
 </head>
 <body>
-Hello
 <!-- <div data&#45;bind="text: var1"> -->
 <!-- </div> -->
 <div data-bind="page: {id: 'start'}">
-Hello start
+Default start page
+<br/>
+<a href="#!/page1">page1</a>
+<a href="#!/page2">page2</a>
+</div>
+<div data-bind="page: {id: 'page1'}">
+Hello page1
 </div>
 <div data-bind="page: {id: 'page2'}">
 Hello page2
@@ -25,15 +30,15 @@ Hello page2
         self.var1 = ko.observable("value1");
     }
 
-    pager.Href.hash = '#!/';
-    // pager.useHTML5history = true;
-    // pager.Href5.history = History;
+   /*  pager.Href.hash = '#!/'; */
+    pager.useHTML5history = true;
+    pager.Href5.history = History;
     tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);
 
-    pager.start();
-   /*  pager.startHistoryJs(); */
+   /*  pager.start(); */
+    pager.startHistoryJs();
 
 </script>
 </body>

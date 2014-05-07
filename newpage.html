@@ -5,11 +5,16 @@
 <script src="js/pager.min.js"></script>
 </head>
 <body>
-Hello
 <!-- <div data&#45;bind="text: var1"> -->
 <!-- </div> -->
 <div data-bind="page: {id: 'start'}">
-Hello start
+Default start page
+<br/>
+<a href="#!/page1">page1</a>
+<a href="#!/page2">page2</a>
+</div>
+<div data-bind="page: {id: 'page1'}">
+Hello page1
 </div>
 <div data-bind="page: {id: 'page2'}">
 Hello page2
@@ -29,21 +34,6 @@ Hello page2
     ko.applyBindings(tvm);
 
     pager.start();
-
-    // var myPage = new pager.Page();
-    // valueAccessorObject = {
-    //     id:"blah"
-    // };
-    // myPage.valueAccessor = function () {
-    //     return valueAccessorObject;
-    // };
-    // myPage.viewModel = {
-    //     answer:42,
-    //     question:'How many'
-    // };
-    // var viewModel = {
-    //     myPage:myPage
-    // };
 
 </script>
 </body>
