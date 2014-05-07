@@ -3,6 +3,7 @@
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/knockout-3.1.0.js"></script>
 <script src="js/pager.min.js"></script>
+<script src="js/history.js"></script>
 </head>
 <body>
 Hello
@@ -23,27 +24,14 @@ Hello page2
         self.var1 = ko.observable("value1");
     }
 
-    pager.Href.hash = '#!/';
+    // pager.Href.hash = '#!/';
+    pager.useHTML5history = true;
+    pager.Href5.history = History;
     tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);
 
-    pager.start();
-
-    // var myPage = new pager.Page();
-    // valueAccessorObject = {
-    //     id:"blah"
-    // };
-    // myPage.valueAccessor = function () {
-    //     return valueAccessorObject;
-    // };
-    // myPage.viewModel = {
-    //     answer:42,
-    //     question:'How many'
-    // };
-    // var viewModel = {
-    //     myPage:myPage
-    // };
+    pager.startHistoryJs();
 
 </script>
 </body>
