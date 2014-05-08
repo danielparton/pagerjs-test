@@ -10,8 +10,8 @@
 <div data-bind="page: {id: 'start'}">
 Default start page
 <br/>
-<a href="/page1">page1</a>
-<a href="/page2">page2</a>
+<a href="page1">page1</a>
+<a href="page2">page2</a>
 </div>
 <div data-bind="page: {id: 'page1'}">
 Hello page1
@@ -27,7 +27,7 @@ Hello page2
 
    /*  pager.Href.hash = '#!/'; */
     pager.useHTML5history = true;
-    pager.Href5.history = history;
+    pager.Href5.history = History;
     tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);
