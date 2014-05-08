@@ -19,10 +19,14 @@ Hello page1
 <div data-bind="page-href: 'page2'">
 Hello page2
 </div>
+<div data-bind="page: {id: 'search', params: ['paramname']}">
+    <span data-bind="text: paramname"></span>
+</div>
 <script>
     function targetViewModel() {
         var self = this;
         self.var1 = ko.observable("value1");
+        self.paramname = ko.observable("fuh");
     }
 
    /*  pager.Href.hash = '#!/'; */
@@ -34,6 +38,8 @@ Hello page2
 
    /*  pager.start(); */
     pager.startHistoryJs();
+
+    alert(tvm.paramname());
 
 </script>
 </body>
