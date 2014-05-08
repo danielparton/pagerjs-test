@@ -2,27 +2,29 @@
 <head>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/knockout-3.1.0.js"></script>
-<script src="js/pager.min.js"></script>
+<script src="js/sammy-latest.min.js"></script>
 </head>
 <body>
-<div data-bind="page: {id: 'start'}">
+<div>
 Hello start
 </div>
-<div data-bind="page: {id: 'page2'}">
+<div>
 Hello page2
 </div>
 <script>
     function targetViewModel() {
         var self = this;
-        self.var1 = ko.observable("value1");
+        self.var1 = ko.observable();
     }
 
-    pager.Href.hash = '#!/';
-    tvm = new targetViewModel();
-    pager.extendWithPage(tvm);
+    var tvm = new targetViewModel();
     ko.applyBindings(tvm);
 
-    pager.start();
+    Sammy(function () {
+        this.get('#:view', function () {
+            tvm.var1(this.params.view);
+        });
+    }).run('#Home');
 
 </script>
 </body>

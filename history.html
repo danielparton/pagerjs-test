@@ -7,8 +7,6 @@
 <script src="js/history.js"></script>
 </head>
 <body>
-<!-- <div data&#45;bind="text: var1"> -->
-<!-- </div> -->
 <div data-bind="page: {id: 'start'}">
 Default start page
 <br/>
@@ -21,9 +19,6 @@ Hello page1
 <div data-bind="page: {id: 'page2'}">
 Hello page2
 </div>
-<!-- <div data&#45;bind="page: {id: 'blah'}"> -->
-<!-- Hello start -->
-<!-- </div> -->
 <script>
     function targetViewModel() {
         var self = this;
@@ -32,7 +27,7 @@ Hello page2
 
    /*  pager.Href.hash = '#!/'; */
     pager.useHTML5history = true;
-    pager.Href5.history = History;
+    pager.Href5.history = history;
     tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);

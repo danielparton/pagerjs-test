@@ -8,13 +8,26 @@
 <div data-bind="page: {id: 'start'}">
 Hello start
 </div>
-<div data-bind="page: {id: 'page2'}">
-Hello page2
+<div data-bind="page: {id: 'page1'}">
+Hello page1
+</div>
+<div data-bind="page: {id: 'page2', bind: bindToVM}">
+Hello
+</div>
+<div>
+And again:
+    <div data-bind="text: getText(bindToVM)"></div>
 </div>
 <script>
     function targetViewModel() {
         var self = this;
         self.var1 = ko.observable("value1");
+        self.bindToVM = ko.observable();
+        getText = function(p) {
+        return $(p().element).html();
+        };
+        // alert(self.bindToVM);
+
     }
 
     pager.Href.hash = '#!/';

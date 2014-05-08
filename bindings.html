@@ -8,21 +8,29 @@
 <div data-bind="page: {id: 'start'}">
 Hello start
 </div>
-<div data-bind="page: {id: 'page2'}">
-Hello page2
+<div data-bind="page: {id: 'page1'}">
+Hello page1
+</div>
+<div data-bind="page: {id: 'search', params: ['paramname']}">
+Hello
+<span data-bind="text: paramname"></span>
 </div>
 <script>
     function targetViewModel() {
         var self = this;
         self.var1 = ko.observable("value1");
+        self.paramname = ko.observable("fuh");
+        alert(self.paramname());
     }
 
     pager.Href.hash = '#!/';
-    tvm = new targetViewModel();
+    var tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);
 
     pager.start();
+
+    alert(tvm.paramname());
 
 </script>
 </body>
