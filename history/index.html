@@ -23,6 +23,9 @@ Hello page2
 sometext
     <span data-bind="text: paramname"></span>
 </div>
+<div>
+    <a href="search?=blah">Search for blah</a>
+</div>
 <script>
     function targetViewModel() {
         var self = this;
@@ -33,7 +36,7 @@ sometext
 
    /*  pager.Href.hash = '#!/'; */
     pager.useHTML5history = true;
-    pager.Href5.history = history;
+    pager.Href5.history = History;
     tvm = new targetViewModel();
     pager.extendWithPage(tvm);
     ko.applyBindings(tvm);
